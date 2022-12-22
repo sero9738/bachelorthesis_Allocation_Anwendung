@@ -203,8 +203,13 @@ namespace Allocation_Console_App
                     else if (command.Equals("test"))
                     {
                         // Step 1 - Read input und read file data.
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "eingangs_erfassung_test");
-                        path = "C:\\Users\\Robert\\Documents\\GitHub\\bachelorthesis\\Material\\eingangs_erfassung_test.xls";
+                        string path = Directory.GetCurrentDirectory();
+                        var index = path.IndexOf("bin");
+                        path = path.Remove(index);
+                        path = Path.Combine(path, "Test");
+                        path = Path.Combine(path, "eingangs_erfassung_test.xls");
+
+
                         if (string.IsNullOrEmpty(path))
                         {
                             Console.WriteLine("TEST: ERROR - Step 1 failed. No filepath found. Please try again.");
